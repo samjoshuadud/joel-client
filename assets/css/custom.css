@@ -1,0 +1,636 @@
+/* Custom overrides for the template */
+
+/* Custom color palette */
+:root {
+    --primary-color: #1A237E;     /* Deep Indigo */
+    --secondary-color: #7C4DFF;   /* Deep Purple */
+    --accent-color: #536DFE;      /* Blue Accent */
+    --light-color: #ECF0F1;       /* Light gray */
+    --dark-color: #1A237E;        /* Deep Indigo */
+    --text-color: #34495E;        /* Slate gray */
+    --hover-color: #3D5AFE;       /* Bright Indigo */
+}
+
+/* Override default theme colors */
+.text-danger {
+    color: var(--accent-color) !important;
+}
+
+/* Line style update to match section headers */
+.line {
+    display: block;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-color), transparent);
+    margin: 15px 0;
+}
+
+.bg-custom-gray {
+    background: var(--light-color) !important;
+}
+
+/* Unique header styling */
+.header {
+    background-image: linear-gradient(135deg, 
+        rgba(44, 62, 80, 0.9), 
+        rgba(52, 152, 219, 0.8)), 
+        url(../imgs/joel/joel.jpeg);
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to top right, var(--light-color) 49%, transparent 51%);
+}
+
+/* Unique button styling */
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Update outline button style */
+.btn-outline-danger {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Update small button styles */
+.btn-sm {
+    transition: all 0.3s ease;
+}
+
+.btn-sm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Card styling updates */
+.about-card {
+    border-left: 4px solid var(--accent-color);
+    position: relative;
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 98%, var(--accent-color) 99%);
+    opacity: 0.1;
+}
+
+/* Portfolio items unique style */
+.portfolio-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 400px;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-item .content-holder {
+    background: linear-gradient(135deg, 
+        rgba(26, 35, 126, 0.95),    /* Primary color with opacity */
+        rgba(124, 77, 255, 0.95));   /* Secondary color with opacity */
+    opacity: 0;
+    padding: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+}
+
+/* Custom scrollbar for content-holder */
+.portfolio-item .content-holder::-webkit-scrollbar {
+    width: 6px;
+}
+
+.portfolio-item .content-holder::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.portfolio-item .content-holder::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.portfolio-item .text-holder {
+    color: white;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    padding: 10px;
+    height: 100%;
+}
+
+.portfolio-item:hover .content-holder {
+    opacity: 0.95;
+}
+
+.portfolio-item:hover .text-holder {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.portfolio-item .title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.portfolio-item .subtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.project-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-tags .tag {
+    background: var(--hover-color);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.project-tags .tag:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Blog cards unique style */
+.blog-card {
+    position: relative;
+    border: none;
+}
+
+.blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, transparent 50%, var(--accent-color) 51%);
+    opacity: 0.1;
+}
+
+/* Reference cards style */
+.reference-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--accent-color);
+    text-align: center;
+}
+
+.avatar-holder {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.reference-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.reference-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.reference-card:hover .avatar-holder {
+    transform: scale(1.05);
+    border-color: var(--secondary-color);
+}
+
+/* Personal Info Card Updates */
+.info li {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.info li span {
+    color: var(--accent-color);
+    font-weight: 600;
+    width: 130px;
+    display: inline-block;
+}
+
+.interests {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 20px;
+}
+
+.interest-tag {
+    background: var(--light-color);
+    color: var(--accent-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin: 5px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.interest-tag:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* Navigation updates */
+.navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+.nav-link {
+    position: relative;
+}
+
+.navbar .nav-item .nav-link.active {
+    color: var(--accent-color) !important;
+    font-weight: 600;
+}
+
+/* Also update the hover state color */
+.navbar .nav-item .nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Section headings */
+.section h1, .section h2 {
+    position: relative;
+    display: inline-block;
+}
+
+.section h1::after, .section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-color), transparent);
+}
+
+/* Footer update */
+.footer {
+    background: var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, 
+        var(--primary-color), 
+        var(--accent-color), 
+        var(--hover-color));
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--hover-color);
+}
+
+/* Header/Intro Section Updates */
+.header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
+    text-align: center;
+    padding: 2rem;
+}
+
+/* About Section Updates */
+.about-section {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+.about-card {
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Work Showcase Updates */
+.portfolio .filters {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 600px;
+}
+
+/* Blog Section Updates */
+.blog-card {
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 100%;
+    margin-bottom: 30px;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.blog-card .content-holder {
+    padding: 25px;
+}
+
+.blog-card .title {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+/* Links/Affiliation Section */
+.classmates-section {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+.affiliation-card {
+    padding: 25px;
+    margin: 1rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.affiliation-card:hover {
+    transform: translateY(-5px);
+}
+
+.affiliation-card h5 {
+    margin-bottom: 10px;
+}
+
+.affiliation-card .text-muted {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design Improvements */
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0 20px;
+    }
+    
+    .header-title {
+        font-size: 2.5rem;
+    }
+    
+    .header-description {
+        font-size: 1rem;
+    }
+    
+    .about-card {
+        margin: 15px;
+    }
+    
+    .portfolio .filters {
+        padding: 0 1rem;
+    }
+    
+    .portfolio-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .portfolio-item {
+        height: 350px;
+    }
+    
+    .portfolio-item .title {
+        font-size: 1.1rem;
+    }
+    
+    .portfolio-item .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .challenges-solutions {
+        margin: 8px 0;
+        padding: 6px;
+    }
+    
+    .challenge, .solution {
+        font-size: 0.85rem;
+    }
+    
+    .project-tags .tag {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .portfolio-item {
+        height: 400px;
+    }
+    
+    .portfolio-item .content-holder {
+        padding: 12px;
+    }
+    
+    .portfolio-item .text-holder {
+        padding: 8px;
+    }
+}
+
+/* Additional custom styles */
+.header-description {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 20px 0;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Add a subtle overlay pattern */
+.portfolio-item .content-holder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(83, 109, 254, 0.1) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(83, 109, 254, 0.1) 50%, 
+        rgba(83, 109, 254, 0.1) 75%, 
+        transparent 75%, 
+        transparent);
+    background-size: 10px 10px;
+    opacity: 0.1;
+}
+
+/* Challenges and Solutions styling */
+.challenges-solutions {
+    margin: 10px 0;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.challenge, .solution {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.challenge i, .solution i {
+    margin-top: 3px;
+    font-size: 0.8rem;
+}
+
+.challenge {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.solution {
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 0;
+}
+
+.challenge i {
+    color: var(--secondary-color);
+}
+
+.solution i {
+    color: var(--hover-color);
+} 
